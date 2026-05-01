@@ -6,9 +6,41 @@
 <title>AI 文科生 30 天 · 从零到搭建 Agent</title>
 <meta name="description" content="为文科生 / 非开发者打造的 30 天 AI 通识课。零代码、零基础、全实战。律师、市场、金融、教育全行业案例。">
 <link rel="stylesheet" href="assets/css/main.css">
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+<link rel="preconnect" href="https://cdn.staticfile.org">
+<link rel="preconnect" href="https://unpkg.com">
+<script>
+  // CDN 容错加载链：国内优先 staticfile，失败回退 unpkg / jsdelivr
+  // 不阻塞页面渲染，加载完成后通过事件触发组件渲染
+  (function () {
+    function load(urls, onload, name) {
+      var i = 0;
+      function tryNext() {
+        if (i >= urls.length) {
+          console.warn("[CDN] " + name + " 全部失败");
+          window.dispatchEvent(new CustomEvent(name + "Failed"));
+          return;
+        }
+        var s = document.createElement("script");
+        s.src = urls[i++];
+        s.async = false;
+        s.onload = function () { onload && onload(); window.dispatchEvent(new CustomEvent(name + "Ready")); };
+        s.onerror = tryNext;
+        document.head.appendChild(s);
+      }
+      tryNext();
+    }
+    load([
+      "https://cdn.staticfile.org/marked/4.3.0/marked.min.js",
+      "https://unpkg.com/marked@4/marked.min.js",
+      "https://cdn.jsdelivr.net/npm/marked@4/marked.min.js"
+    ], null, "marked");
+    load([
+      "https://cdn.staticfile.org/mermaid/10.6.1/mermaid.min.js",
+      "https://unpkg.com/mermaid@10/dist/mermaid.min.js",
+      "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"
+    ], null, "mermaid");
+  })();
+</script>
 </head>
 <body>
 

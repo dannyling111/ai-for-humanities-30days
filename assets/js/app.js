@@ -16,9 +16,42 @@ const App = (() => {
     })[m]);
   }
 
+  // 兜底 Markdown 渲染器（在 marked.js 没加载时用）
+  function fallbackMd(text) {
+    var html = escape(text);
+    // 标题
+    html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+    // 代码块
+    html = html.replace(/```([\s\S]*?)```/g, function (_, c) {
+      return '<pre><code>' + c + '</code></pre>';
+    });
+    // 行内代码
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // 粗体 / 斜体
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    // 链接
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+    // 列表（粗略）
+    html = html.replace(/^(\s*)- (.+)$/gm, '<li>$2</li>');
+    html = html.replace(/^(\s*)\d+\. (.+)$/gm, '<li>$2</li>');
+    html = html.replace(/(<li>[\s\S]*?<\/li>)+/g, function (m) { return '<ul>' + m + '</ul>'; });
+    // 引用
+    html = html.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
+    // 段落
+    html = html.split(/\n{2,}/).map(function (p) {
+      if (/^<(h\d|ul|ol|pre|blockquote|table)/.test(p.trim())) return p;
+      return p.trim() ? '<p>' + p.replace(/\n/g, '<br>') + '</p>' : '';
+    }).join('\n');
+    return html;
+  }
+
   function md(text) {
-    if (window.marked) return marked.parse(text);
-    return "<pre>" + escape(text) + "</pre>";
+    if (window.marked && typeof marked.parse === "function") return marked.parse(text);
+    if (window.marked && typeof marked === "function") return marked(text);
+    return fallbackMd(text);
   }
 
   function setActive(routeName) {
@@ -610,12 +643,21 @@ const App = (() => {
   return { init, render };
 })();
 
-// 等待 marked 和 mermaid 加载
-function startApp() {
-  if (window.marked && window.mermaid) {
-    App.init();
-  } else {
-    setTimeout(startApp, 100);
-  }
+// 立刻启动（不等 CDN）
+document.addEventListener("DOMContentLoaded", function () {
+  App.init();
+  // marked / mermaid 后续加载完成后，重新渲染当前页以升级体验
+  window.addEventListener("markedReady", function () {
+    console.log("[CDN] marked 已加载，重新渲染");
+    App.render();
+  });
+  window.addEventListener("mermaidReady", function () {
+    console.log("[CDN] mermaid 已加载");
+    if (window.MM) MM.render(document.getElementById("app"));
+  });
+});
+
+// 如果 DOMContentLoaded 已经过了（极端情况），立即跑
+if (document.readyState !== "loading") {
+  setTimeout(function () { if (!window.__appStarted) { window.__appStarted = true; App.init(); } }, 0);
 }
-document.addEventListener("DOMContentLoaded", startApp);
