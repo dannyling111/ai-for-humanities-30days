@@ -458,7 +458,7 @@ KPI：【...】
     name: "数据分析",
     color: "#7b1fa2",
     pain: "SQL 写不熟、Python 不会、看到 Excel 头大",
-    aiSolution: "AI 是文科生数据分析的"超级翻译器"",
+    aiSolution: "AI 是文科生数据分析的“超级翻译器”",
     content: `
 ## 行业现状（2026）
 
@@ -738,7 +738,7 @@ B 组：[数据]
     name: "翻译 / 语言",
     color: "#c2185b",
     pain: "翻译稿初稿耗时、术语不一致、本地化要求高",
-    aiSolution: "AI 是翻译人员的"加速器" + "术语守卫者"",
+    aiSolution: "AI 是翻译人员的“加速器” + “术语守卫者”",
     content: `
 ## 行业现状（2026）
 
@@ -870,7 +870,7 @@ B 组：[数据]
     name: "战略咨询",
     color: "#5d4037",
     pain: "案头研究耗时、框架套用难、报告制作慢",
-    aiSolution: "AI 是 BCG/麦肯锡式咨询的"研究助理"",
+    aiSolution: "AI 是 BCG/麦肯锡式咨询的“研究助理”",
     content: `
 ## 行业现状（2026）
 
