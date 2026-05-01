@@ -111,31 +111,36 @@ const COURSE = {
       minutes: 8,
       summary: "按场景挑，不随大流。每个模型有它最香的活，组合用比死磕一个强。",
       content: `
-## 一张表选模型（2026/05 行情）
+## 一张表选模型（2026-05 真实行情）
 
-| 模型 | 强项 | 弱项 | 适合谁 |
-|------|------|------|--------|
-| **Claude Sonnet 4.5 / Opus 4** | 写作、长上下文、Agent / Computer Use 最稳 | 价格略高 | 写作者 / Agent 玩家 / 律师 |
-| **ChatGPT (GPT-5 / o-series)** | 通用、推理、多模态、Codex Computer Use | 长任务记忆比 Claude 弱 | 创作者 / 数据分析 |
-| **Gemini 2.5 Pro** | 超长上下文（2M tokens）、视频理解、谷歌生态 | 风格稍正式 | 研究 / 视频内容 / 学术 |
-| **DeepSeek V3.2 / R1** | 开源 + 推理 + 价格极低（API 比闭源便宜 10×） | 小语种弱、生态偏国际 | 自部署 / 大量调用 |
-| **本地模型**（Llama 4 / Qwen 3 / Mistral Large） | 完全离线、隐私 100% | 需要 16GB+ 显存 | 隐私敏感 / 律师 / 医疗 |
+| 模型 | 发布 | 强项 | 弱项 | 适合谁 |
+|------|------|------|------|--------|
+| **Claude Opus 4.7 / Sonnet 4.6** | Opus 4.7 · 2026-04-16 | 写作 / 长上下文 / Agent / Computer Use 最稳 / Ultraplan | 价格略高 | 写作者 / Agent 玩家 / 律师 |
+| **ChatGPT GPT-5.5** | 2026-04-23 | 通用、推理、多模态、Codex Computer Use（4-16 重启）| 长任务记忆比 Claude 弱 | 创作者 / 数据分析 |
+| **Gemini 3.1 Pro** | 2026 Q1 | 2M tokens 长上下文 / 视频理解 / Google AI Mode | 风格稍正式 | 研究 / 视频内容 / 学术 |
+| **DeepSeek V4-Pro** | 2026-04-24 | 开源 + 推理 + 价格极低（API 比闭源便宜 10×）| 多语种生态偏国际 | 自部署 / 大量调用 |
+| **Kimi K2.6**（Moonshot） | 2026 Q1 | 中文最强之一 / 200 万字上下文 | 国际生态弱 | 中文长文档 / 学术 |
+| **本地**（Llama 4 / Qwen 3.6） | 2026 持续迭代 | 完全离线、隐私 100% | 需 16GB+ 显存 | 隐私敏感 / 律师 / 医疗 |
 
-## 文科生 90% 场景的最优组合
+> ⚠️ **2026 退役提示**：Claude Sonnet 4 / Opus 4 将于 **2026-06-15 退役**；GPT-4o 已于 **2026-02 下线**；DALL-E 2/3 将于 **2026-05-12 停服**。看到老教程提这些型号要警惕。
 
-- **主力**：Claude Pro（$20/月）— 写作、Agent、Computer Use 都最稳
-- **替补**：ChatGPT Plus（$20/月）— 多模态 + 实时搜索 + Codex 桌面操控
-- **批量低价**：DeepSeek API — 调几千次也只要几美元
-- **隐私场景**：本地 Ollama + Llama 4 / Qwen 3
+## 文科生 90% 场景的最优组合（2026 现实）
 
-不是非此即彼，**两家都开是最现实的策略**（每月 $40，干掉过去 $400/月的杂费）。
+- **主力**：Claude Pro / Max（$20-200/月）— 写作 / Agent / Claude Code / Computer Use 都最稳
+- **替补**：ChatGPT Plus（$20/月）— 多模态 + ChatGPT Search + Codex 桌面操控
+- **批量低价**：DeepSeek V4-Pro API — 调几千次也只要几美元
+- **中文长文档**：Kimi K2.6（200 万字上下文，免费版够用）
+- **隐私场景**：本地 Ollama + Llama 4 / Qwen 3.6
 
-## 小白避坑
+**两家都开是最现实的策略**（每月 $40，干掉过去 $400/月的杂费）。
+
+## 小白避坑（2026 版）
 
 1. **不要在 1 个软件里硬凑**：Claude + ChatGPT 同时开，A/B 对照比纠结哪个好快得多
-2. **联网搜索 / Web search 必开**：纯模型不知道你今天的事
+2. **联网搜索 / Web search 必开**：纯模型不知道你今天的事（Claude Web Search / ChatGPT Search / Google AI Mode 都是 2026 默认开）
 3. **API Key 第 4 周才用**：现在先用网页 / 桌面 App
-4. **别迷信榜单**：MMLU / HumanEval 跑分和你的实际场景关系有限。**自己跑 5 个真实任务对比，比看跑分管用 10 倍**
+4. **别迷信榜单**：自己跑 5 个真实任务对比，比看 MMLU 跑分管用 10 倍
+5. **别买已退役模型**：选 Claude 选 Opus 4.7 / Sonnet 4.6，别选 Sonnet 4 / Opus 4（2026-06-15 退役）
 
 ## 实操：今天就做的事
 
@@ -159,19 +164,22 @@ const COURSE = {
         },
       ],
       videos: [
-        { title: "Anthropic — Claude Sonnet 4.5 介绍", url: "https://www.youtube.com/@anthropic-ai", src: "YouTube" },
+        { title: "Anthropic — Claude Opus 4.7 介绍（2026）", url: "https://www.youtube.com/@anthropic-ai", src: "YouTube" },
+        { title: "OpenAI — GPT-5.5 发布会", url: "https://www.youtube.com/results?search_query=GPT-5.5+launch+2026", src: "YouTube" },
         { title: "Andrej Karpathy: Intro to LLMs", url: "https://www.youtube.com/watch?v=zjkBMFhNj_g", src: "YouTube" },
       ],
       mindmap: `graph LR
-  M[选模型] --> 主力[主力]
+  M[选模型 2026] --> 主力[主力]
   M --> 批量[批量低价]
+  M --> 中文[中文长文档]
   M --> 隐私[隐私场景]
-  主力 --> Claude[Claude Pro]
-  主力 --> GPT[ChatGPT Plus]
-  主力 --> Gemini
-  批量 --> DeepSeek
+  主力 --> Claude[Opus 4.7]
+  主力 --> GPT[GPT-5.5]
+  主力 --> Gemini[Gemini 3.1 Pro]
+  批量 --> DS[DeepSeek V4-Pro]
+  中文 --> Kimi[Kimi K2.6]
   隐私 --> Ollama[本地 Llama 4]
-  隐私 --> Qwen[本地 Qwen 3]`,
+  隐私 --> Qwen[本地 Qwen 3.6]`,
     },
 
     {
@@ -1543,23 +1551,28 @@ O:
     {
       day: 17,
       week: 3,
-      title: "图片生成 · Midjourney / Flux / Ideogram",
+      title: "图片生成 · ChatGPT Images 2.0 / Nano Banana 2 / Midjourney V8.1 / FLUX.2",
       sub: "0 美术基础也能做出商用图",
       minutes: 12,
       summary: "做封面 / 做海报 / 做 PPT 配图 —— 文科生的视觉解放日。",
       content: `
-## 5 大图像 AI 工具（2026/05）
+## 5 大图像 AI 工具（2026-05 真实排名）
 
-| 工具 | 强项 | 收费 |
-|------|------|------|
-| **Midjourney v7** | 艺术性最强 / 风格库丰富 | $10/月起，Web 版直接出图 |
-| **Flux 1.1 Pro / Krea**（Black Forest Labs） | 真实感 + 跟随 prompt 最准 | $10/月或按张计 |
-| **Ideogram 3.0** | 文字 / 海报 / Logo（带字图首选） | 免费额度大方 |
-| **GPT Image / DALL·E 4**（ChatGPT 集成） | 理解长 prompt 最好、对话式改图 | 含 ChatGPT Plus |
-| **Nano Banana / Imagen 4**（Gemini 集成） | 谷歌生态、多图编辑 | 含 Gemini Advanced |
+> 数据来源：[Artificial Analysis Image Arena](https://artificialanalysis.ai/image/leaderboard/text-to-image)（实时 Elo）+ 各厂官方博客
 
-> 文科生入门首选：**ChatGPT 内置 GPT Image**（最简单）+ **Ideogram**（要带字海报）。
-> 想专业感拉满：**Midjourney v7** 一档搞定 90% 商用图。
+| 工具 | 出品方 / 发布 | 强项 | 价格 |
+|------|--------------|------|------|
+| **ChatGPT Images 2.0** | OpenAI · **2026-04-21** · Image Arena 第一（Elo 1335） | 原生推理（先思考再画）、单次 8 张角色一致、杂志级排版、文字渲染最强（含日韩印地语） | Free 2-3 张/天；Plus $20（Thinking 50 张/3h）；Pro $200 |
+| **Nano Banana 2 / Gemini 3.1 Flash Image** | Google · 2026-02-26 | 实时联网知识库、信息图/图表生成、速度极快 | Gemini 免费层即可用 |
+| **Midjourney V8.1 Alpha** | Midjourney · 2026-04-14（V8.0 于 2026-03-17） | 电影级美学（艺术家首选）、原生 2K（--hd）、5x 提速 | $10/月起，alpha.midjourney.com |
+| **FLUX.2 [Pro] / [max]** | Black Forest Labs · 2025-11-25 | 32B 参数开源 SOTA、4MP、照相级写实、多参考图风格一致 | API/OpenRouter 计费 |
+| **Recraft V4** | Recraft · 2026-02 | 设计师向、**唯一能产 SVG 矢量图**，品牌资产神器 | $12/月起 |
+
+> 文科生入门首选：**ChatGPT Images 2.0**（一句话出图，文字渲染最强）+ **Nano Banana 2**（Gemini 免费就能用）。
+> 想艺术感拉满：**Midjourney V8.1**（艺术家首选 · 电影级）。
+> 设计师补位：**Recraft V4**（唯一矢量 SVG）。
+
+> ⚠️ **已退场**：DALL-E 2/3 → 2026-05-12 API 停服；Midjourney v7 / Flux 1.1 Pro / Ideogram 3 已被 V8 / FLUX.2 / GPT Image 2 全面超越。
 
 ## 写出"出图就能用"的 Prompt
 
@@ -1608,7 +1621,7 @@ O:
 
 ## 实操作业
 
-用 ChatGPT (GPT Image) 或 Ideogram，做 1 张你这周博客 / PPT / 社交分享的图。今天就发出去。
+用 **ChatGPT Images 2.0**（开 Thinking 模式）或 **Nano Banana 2**（Gemini 免费层），做 1 张你这周博客 / PPT / 社交分享的图。今天就发出去。
       `,
       templates: [
         {
@@ -1625,14 +1638,16 @@ O:
         },
       ],
       videos: [
-        { title: "Midjourney v7 完整教程", url: "https://www.youtube.com/results?search_query=midjourney+v7+tutorial+2026", src: "YouTube" },
-        { title: "Flux 1.1 Pro / Krea 实战", url: "https://www.youtube.com/results?search_query=flux+1.1+pro+tutorial", src: "YouTube" },
+        { title: "ChatGPT Images 2.0 实测（TechCrunch）", url: "https://techcrunch.com/2026/04/21/chatgpts-new-images-2-0-model-is-surprisingly-good-at-generating-text/", src: "TechCrunch" },
+        { title: "Midjourney V8.1 完整教程", url: "https://www.youtube.com/results?search_query=midjourney+v8.1+tutorial+2026", src: "YouTube" },
+        { title: "Nano Banana 2 介绍", url: "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/", src: "Google Blog" },
       ],
       mindmap: `graph LR
-  I[图像生成] --> MJ[Midjourney v7 艺术]
-  I --> FX[Flux 1.1 Pro 写实]
-  I --> ID[Ideogram 3 文字精准]
-  I --> GPT[GPT Image 自然语言]
+  I[图像生成 2026-05] --> GPT[ChatGPT Images 2.0 文字王]
+  I --> NB[Nano Banana 2 速度王]
+  I --> MJ[Midjourney V8.1 艺术王]
+  I --> FX[FLUX.2 开源 SOTA]
+  I --> RC[Recraft V4 矢量SVG]
   I --> 公[公式 主体+风格+镜头]
   I --> 场
   场 --> 封面
@@ -1643,30 +1658,37 @@ O:
     {
       day: 18,
       week: 3,
-      title: "视频生成 · Sora 2 / Veo 3 / Runway",
+      title: "视频生成 · Seedance 2.0 / HappyHorse / Kling 3.0 / Veo 3.1",
       sub: "5 分钟做出社媒刷屏视频",
       minutes: 10,
-      summary: "2026 年视频 AI 已能生成 1 分钟连贯短片，并支持原生音频与对白。文科生正抓住红利期。",
+      summary: "2026 年视频 AI 已能生成 1 分钟连贯短片，原生带音频与对白。中国双雄（字节 Seedance、阿里 HappyHorse）正与 Google Veo 3.1 / OpenAI Sora 2 争夺榜首。",
       content: `
-## 4 大视频 AI 对比（2026 现状）
+## 5 大视频 AI 对比（2026-05 真实排名）
 
-| 工具 | 时长 | 亮点 | 难度 | 用途 |
-|------|------|------|------|------|
-| **Sora 2**（OpenAI） | 最多 60 秒 | 原生音效 / 对白 / 物理一致性 | 中 | 创意短片、广告 |
-| **Veo 3**（Google） | 最多 60 秒 | 原生音轨、电影级运镜 | 中 | 高质量品牌片 |
-| **Runway Gen-4** | 5-20 秒 | 角色 / 场景一致性强 | 中 | 特效、转场、风格化 |
-| **Pika 2.2 / Kling 2.0** | 5-10 秒 | 上手快、模板多 | 低 | 社媒短视频、图生视频 |
+> 数据来源：[Artificial Analysis Video Arena](https://artificialanalysis.ai/video/arena)（实时 Elo）+ 官方博客
 
-> 入门首选：**Pika** 或 **Runway**（快、上手简单）；进阶：**Sora 2**（ChatGPT Plus / Pro 内置）；电影感优先选 **Veo 3**（Google AI Studio / Gemini Advanced）。
+| 工具 | 出品方 / 发布 | 时长 / 分辨率 | 亮点 | 价格 |
+|------|--------------|--------------|------|------|
+| **Seedance 2.0** | ByteDance（CapCut / Dreamina）· 2026-02-12 / 全球 2026-04-09 | 4-15 秒 / 1080p（Pro 2K） | **带音频赛道第一**、多镜头剪辑、5 秒生成仅 60 秒（比 Sora 2 快 2-5 倍） | $0.022-0.199/秒 |
+| **HappyHorse 1.0** | 阿里巴巴 ATH · **2026-04-27 商用** · Image Arena 第一 | 15 秒 / 1080p (部分 2K) | 当前画质榜首（无音频赛道） | $0.13-0.23/秒 |
+| **Kling 3.0 Omni** | 快手 · 2026-02-05 | 原生 4K / 长片段 | **4K 原生 + 多语音频**、长内容优势 | 订阅 $5.99-159.99/月，API $0.126/秒 |
+| **Google Veo 3.1** | Google DeepMind · 2026-03-31 | 1080p | 电影级运镜、价格最低、海外最易访问（Gemini API） | API $0.03/秒（10s ≈ $4） |
+| **OpenAI Sora 2** | OpenAI · 2026 持续迭代 | 5-20 秒 / 1080p | 物理真实感强 + 长片叙事 | ChatGPT Plus $20 / Pro $200 |
+
+> 入门首选：**Seedance 2.0**（CapCut / Dreamina 直接出，全球 100+ 国家可用，**美国除外**）。
+> 海外学员：**Veo 3.1**（Gemini API，价格最低）或 **Kling 3.0 Omni**（4K 原生）。
+> 画质极致：**HappyHorse 1.0**（阿里云 Bailian / fal.ai / 通义千问 App）。
+
+> ⚠️ **已退潮**：Runway Gen-4（无原生音频、16 秒上限、API 锁企业版）；Pika 2.x 已掉出第一梯队。
 
 ## 文科生最容易上手的 3 种视频
 
 ### 类型 1 · 图生视频（最简单）
 **操作**：
-1. 用 Midjourney / Flux / GPT Image 生成 1 张静态图
-2. 上传到 Runway / Pika → 选 "Image to Video"
+1. 用 ChatGPT Images 2.0 / Nano Banana 2 / Midjourney V8.1 生成 1 张静态图
+2. 上传到 Seedance（Dreamina / CapCut）/ Kling / Veo → 选 "Image to Video"
 3. 描述运镜：「镜头缓慢推进，主体微微转头，背景叶子飘动」
-4. 等 30 秒 → 出 5 秒视频
+4. 等 1 分钟 → 出 5 秒带音频视频
 
 ### 类型 2 · 文生视频
 **Prompt 公式**：
@@ -1685,7 +1707,7 @@ O:
 ### 类型 3 · 视频转风格（最适合自媒体）
 **操作**：
 1. 录一段你自己的真人视频
-2. 上传到 Runway / Pika
+2. 上传到 Seedance / Kling / Veo
 3. 选"风格迁移"：动漫风 / 油画风 / 复古胶片
 
 3 分钟产出"那种很贵的特效视频"。
@@ -1724,7 +1746,7 @@ O:
 
 ## 今日作业
 
-用 Runway / Pika / Sora 2，**做 1 个 5-10 秒的视频**，发到 X / Instagram / LinkedIn。今天就发，不用完美。
+用 **Seedance 2.0**（Dreamina / CapCut，全球可用，美国除外）或 **Veo 3.1**（Gemini API，海外最易访问），**做 1 个 5-10 秒带音频的视频**，发到 X / Instagram / LinkedIn。今天就发，不用完美。
       `,
       templates: [
         {
@@ -1742,14 +1764,16 @@ O:
         },
       ],
       videos: [
-        { title: "Sora 2 完整指南", url: "https://www.youtube.com/results?search_query=sora+2+tutorial+2026", src: "YouTube" },
-        { title: "Runway Gen-4 实战", url: "https://www.youtube.com/results?search_query=runway+gen-4+tutorial", src: "YouTube" },
+        { title: "Seedance 2.0 to CapCut（TechCrunch）", url: "https://techcrunch.com/2026/03/26/bytedances-new-ai-video-generation-model-dreamina-seedance-2-0-comes-to-capcut/", src: "TechCrunch" },
+        { title: "Veo 3.1 vs Kling 3 vs Sora 2 实测对比", url: "https://www.aimagicx.com/blog/veo-3-vs-kling-3-vs-sora-2-april-2026-comparison", src: "AI Magicx" },
+        { title: "Artificial Analysis Video Arena 实时榜", url: "https://artificialanalysis.ai/video/arena", src: "Artificial Analysis" },
       ],
       mindmap: `graph LR
-  V[视频生成] --> Sora2[Sora 2 创意]
-  V --> Veo3[Veo 3 电影感]
-  V --> Runway[Runway 风格化]
-  V --> Pika[Pika 入门]
+  V[视频生成 2026-05] --> SD[Seedance 2.0 带音频王]
+  V --> HH[HappyHorse 1.0 画质王]
+  V --> KL[Kling 3.0 4K原生]
+  V --> Veo[Veo 3.1 海外首选]
+  V --> Sora2[Sora 2 物理感强]
   V --> 类
   类 --> 图生视频
   类 --> 文生视频
@@ -1760,30 +1784,33 @@ O:
     {
       day: 19,
       week: 3,
-      title: "PPT / Slides 自动生成 · Gamma / Tome / Beautiful.ai",
+      title: "PPT / Slides 自动生成 · Gamma 3.0 / M365 Copilot / Beautiful.ai / Plus AI",
       sub: "5 分钟出 30 页商务演示",
       minutes: 10,
       summary: "上次熬夜做 PPT 是哪一年？AI 时代 PPT 这种活已经不该再花时间。",
       content: `
-## 3 大 PPT AI 工具对比（2026/05）
+## 4 大 PPT AI 工具对比（2026-05 真实排名）
 
-| 工具 | 出图速度 | 模板美感 | 多语言 | 收费 |
-|------|--------|--------|--------|------|
-| **Gamma 2.0** | 极快 | 极美 | 中英文俱佳 | 免费起步，Pro $10/月 |
-| **Tome** | 快 | 中-高 | 中英文好 | 免费 + Pro |
-| **Beautiful.ai** | 中 | 高 | 中英文好 | $12/月起 |
-| **iSlide AI** | 中 | 强 | 优秀 | 收费 |
+| 工具 | 出品方 / 发布 | 亮点 | 中文 | 价格 |
+|------|--------------|------|------|------|
+| **Gamma 3.0 Agent** | Gamma · 2026 年初 + Generate API（2026-01 GA）+ AI 图片生成（2026-03） | 出图最快最美、25+ 语言、Web/PDF/PPTX 一键导出 | ✅ 简繁原生 | Free 400 credits / Plus $8 / Pro $15 |
+| **Microsoft 365 Copilot in PowerPoint** | Microsoft · **Agentic GA 2026-04-22** | Researcher 一键转 PPT、全 deck 字体/字号统一、深度集成 Office 生态 | ✅ 简繁中文原生 | $30/座/月（需 M365 订阅） |
+| **Beautiful.ai Create with AI** | Beautiful.ai · 2026-03 史上最大更新 | Context-Aware 工作流、Smart Slide 模板设计原则 | △ 界面英文，AI 翻译可中文 | Pro $12 / Team $40 |
+| **Plus AI** | Plus Docs · 持续迭代 | 嵌入 Google Slides / PowerPoint，模板学习 | ✅ 多语言（GPT 后端） | Basic $10 / Pro $20 |
 
-> 入门首选：**Gamma**（出图最快最美）+ **WPS AI**（已经在你电脑上）
+> 入门首选：**Gamma 3.0 Agent**（出图最快、中文原生）+ **M365 Copilot**（已有 Office 订阅就直接用）。
+> ⚠️ **Tome 已死**：2025-04 关停 PPT 业务，2026 年不可用，老教程别再看。
 
-## Gamma 5 分钟教程
+## Gamma 3.0 Agent · 5 分钟教程
 
 1. 打开 [gamma.app](https://gamma.app)
-2. 点 "Create new" → 选 "Generate"
+2. 点 "Create with Agent"（3.0 新入口）→ 选 "Presentation"
 3. 输入主题：「人工智能时代文科生职业转型，30 分钟内训」
-4. 选页数：10-15 页
-5. 等 30 秒 → 完整 PPT 出来
-6. 一键改风格 / 改色调 / 替换图
+4. 选页数：10-15 页 + 选风格模板
+5. Agent 自动生成大纲 → 你确认 / 微调 → 30 秒出全 PPT
+6. 一键改色调 / 替换图 / 切换语言（25+ 语种） / 导出 PPTX·PDF·Web
+
+> M365 Copilot 用户：直接在 PowerPoint 里打开 Copilot → 输入「Generate a presentation about X」→ Researcher 模式可联网查资料后再生成（Agentic GA 2026-04-22 后默认开启）。
 
 ## 写出"AI 出 PPT 直接能用"的指令
 
@@ -1858,16 +1885,20 @@ DeepSeek 大纲 → 复制到 Gamma → 一键生成。**质量 > 直接让 PPT 
         },
       ],
       videos: [
-        { title: "Gamma 5 分钟做 PPT 实测", url: "https://www.youtube.com/results?search_query=Gamma+5+分钟做+PPT+实测", src: "YouTube" },
+        { title: "Gamma 3.0 Agent 实测（2026）", url: "https://www.youtube.com/results?search_query=Gamma+3.0+Agent+2026", src: "YouTube" },
+        { title: "Microsoft 365 Copilot Agentic PPT", url: "https://www.microsoft.com/en-us/microsoft-365/blog/2026/04/22/microsoft-365-copilot-agentic-features/", src: "Microsoft Blog" },
+        { title: "Beautiful.ai Create with AI 介绍", url: "https://www.beautiful.ai/create-with-ai", src: "Beautiful.ai" },
       ],
       mindmap: `graph LR
-  P[PPT AI] --> G[Gamma 国外]
-  P --> 美[美图设计室]
-  P --> W[WPS AI]
+  P[PPT AI] --> G[Gamma 3.0 Agent]
+  P --> M[M365 Copilot]
+  P --> B[Beautiful.ai]
+  P --> Plus[Plus AI]
+  P --> 死[Tome 已死]
   P --> 流[流程 大纲先行]
   流 --> DS[DeepSeek 出大纲]
-  流 --> Gam[Gamma 出图]
-  流 --> 备[AI 写备注]`,
+  流 --> Gam[Gamma 3.0 出图]
+  流 --> 备[Copilot 写演讲稿]`,
     },
 
     {
@@ -2018,19 +2049,22 @@ DeepSeek 大纲 → 复制到 Gamma → 一键生成。**质量 > 直接让 PPT 
     {
       day: 21,
       week: 3,
-      title: "搜索升级 · Perplexity / ChatGPT Search / Grok",
-      sub: "Google 时代正在结束",
+      title: "搜索升级 · Perplexity Comet / Google AI Mode / ChatGPT Search / Claude Web",
+      sub: "Google 时代结束 · AI 搜索完全胜出（2026 现状）",
       minutes: 8,
-      summary: "AI 搜索 = 搜索引擎 + 总结 + 引用源。从此不再"30 个标签页找答案"。",
+      summary: "AI 搜索 = 搜索引擎 + 总结 + 引用源 + 自主调研。从此不再"30 个标签页找答案"。",
       content: `
-## 4 大 AI 搜索（2026/05）
+## 5 大 AI 搜索 · 2026-05 真实排名
 
-| 工具 | 强项 | 收费 |
-|------|------|------|
-| **Perplexity Pro** | 学术深度 / 引用最规范 / Comet 浏览器 | $20/月，免费版可用 |
-| **ChatGPT Search**（GPT-5 内置） | 实时联网 + 多模态 + 跟随追问 | 含 ChatGPT Plus |
-| **Claude with Web Search** | 长上下文综合多源最稳 | 含 Claude Pro |
-| **Grok**（xAI） | X / 社交平台动态信息最快 | 免费 + Premium |
+| 工具 | 出品方 / 杀手锏 | 中文 | 价格 |
+|------|----------------|------|------|
+| **Perplexity Comet + Computer Use** | Perplexity · Comet 浏览器 + Agent 自主点鼠标做调研 | ✅ | Pro $20 / Max $200 |
+| **Google AI Mode（Deep Search）** | Google · 2026 取代经典搜索的 Deep Search 模式，可分钟级整合数十源 | ✅ | 含 Google AI Pro / Ultra |
+| **ChatGPT Search**（GPT-5.5 后端） | OpenAI · 实时联网 + 多模态 + 跟随追问最自然 | ✅ | 免费 + Plus / Pro |
+| **Claude Web Search**（Opus 4.7） | Anthropic · 长上下文综合多源最稳，引用规范 | ✅ | Free + Pro / Max |
+| **Grok**（xAI） | X 社交平台动态信息最快 | ✅ | Free + Premium |
+
+> 💡 **2026 真实变化**：Perplexity Comet 浏览器已支持 Computer Use（看屏幕、点链接、跨标签页调研）；Google 把传统"10 蓝链"换成 AI Mode；中国大陆用户可直接用 Google AI Mode + ChatGPT Search 免费版。
 
 ## AI 搜索 vs 传统搜索
 
@@ -2124,18 +2158,21 @@ AI 搜索：1 分钟拿到 5 个数据 + 来源链接
         },
       ],
       videos: [
-        { title: "Perplexity Pro 完整教程", url: "https://www.youtube.com/results?search_query=perplexity+pro+tutorial+2026", src: "YouTube" },
-        { title: "ChatGPT Search vs Claude Web", url: "https://www.youtube.com/results?search_query=chatgpt+search+vs+claude+web+search", src: "YouTube" },
+        { title: "Perplexity Comet + Computer Use 实测", url: "https://www.youtube.com/results?search_query=perplexity+comet+computer+use+2026", src: "YouTube" },
+        { title: "Google AI Mode (Deep Search) 教程", url: "https://www.youtube.com/results?search_query=google+ai+mode+deep+search+2026", src: "YouTube" },
+        { title: "ChatGPT Search vs Claude Web 2026", url: "https://www.youtube.com/results?search_query=chatgpt+search+vs+claude+web+search+2026", src: "YouTube" },
       ],
       mindmap: `graph LR
-  S[AI 搜索] --> P[Perplexity Pro]
-  S --> CG[ChatGPT Search]
-  S --> CW[Claude Web]
+  S[AI 搜索 2026] --> P[Perplexity Comet]
+  S --> G[Google AI Mode]
+  S --> CG[ChatGPT Search GPT-5.5]
+  S --> CW[Claude Web Opus 4.7]
   S --> GR[Grok]
-  S --> 对比[vs Google/Bing]
+  S --> 对比[vs Google 经典搜索]
   对比 --> 直接答案
   对比 --> 引用源
-  对比 --> 提速10x`,
+  对比 --> 提速10x
+  对比 --> Computer_Use[Agent自主调研]`,
     },
 
     // ============ Week 4 ============
@@ -2363,21 +2400,25 @@ claude
 - \\\`/clear\\\` — 清空对话上下文
 - \\\`/init\\\` — 让 Claude 自己分析项目，写一份 CLAUDE.md
 - \\\`/cost\\\` — 看本次会话花了多少钱
-- \\\`/model\\\` — 切换 Sonnet / Opus
+- \\\`/model\\\` — 切换 Opus 4.7 / Sonnet 4.6（默认 Opus 4.7，复杂任务自动加 Ultraplan）
+- \\\`/loop\\\` — 长任务自循环（2026 新增），适合做大批量笔记整理
 
 ### 技巧 3 · 让它自己评审
 
 跑完一个任务后说："**review 一下你刚才做的，找出 3 个还能改进的地方**"。它会自己挑刺、再改一轮。
 
-## 价格（2026/05 行情）
+## 价格（2026-05 真实行情）
 
 | 计划 | 价格 | 适合 |
 |------|------|------|
 | Pro | $20/月 | 个人日常使用，每天几百次对话够 |
 | Max 5x | $100/月 | 重度用户，跑长任务 |
+| Max 20x | $200/月 | Agent 长跑、Computer Use 重度 |
 | API | 按 token 计 | 接入自动化流程 |
 
 **Pro 已足够**。先用 Pro 30 天，确认价值再升 Max。
+
+> ⚠️ **2026 退役提示**：旧版 Sonnet 4 / Opus 4 将于 **2026-06-15 退役**，现在新装 Claude Code 默认模型已经是 **Opus 4.7（2026-04-16 发布）**。
 
 ## 替代方案（生态在卷）
 
@@ -2673,13 +2714,15 @@ MyVault/
 
 ### 1. **MCP（Model Context Protocol）**
 2024 年由 Anthropic 提出，2025 年 12 月捐给 Linux 基金会的 **Agentic AI Foundation**。
-2026 年 Q2 已经是事实标准 —— Claude / Cursor / Windsurf / OpenAI 全部原生支持，公开 server 实现超过 1 万个，主流工具如 GitHub / Slack / Notion / Stripe / Figma / Postgres 都有现成的 MCP 服务器。
+2026 年 Q2 已经是事实标准 —— Claude / Cursor / Windsurf / OpenAI / Gemini 全部原生支持。**6 大注册中心累计 67,057+ public servers**（2026-05），主流工具 GitHub / Slack / Notion / Stripe / Figma / Postgres / Google Drive / Gmail 都有现成的 MCP 服务器。
 
 **一句话理解**：MCP 是 AI 世界的 USB-C。一头插 AI，一头插任意工具，立刻能用。
 
+> 📜 **2025-11-25 新规范 CIMD**：取代旧的 DCR（Dynamic Client Registration），让 MCP server 安装更安全（防止恶意服务器伪装）。新装的 Claude Desktop 已经默认走 CIMD 流程。
+
 ### 2. **Computer Use（桌面操控）**
-- **Anthropic Claude Computer Use**：2026/03/24 在 macOS 上线
-- **OpenAI Codex Computer Use**：2026/04/16 跟进 macOS
+- **Anthropic Claude Computer Use**：2026-03 进 Claude Code CLI（不再只是 Desktop App）
+- **OpenAI Codex Computer Use**：2026-04-16 重启 Codex，新增 **Background Computer Use**（关电脑也能跑）
 
 它能做的事：**看屏幕截图 → 决定下一步 → 移动鼠标 → 输入文字 → 截图验证 → 继续**。
 
