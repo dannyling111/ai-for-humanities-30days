@@ -2052,7 +2052,7 @@ DeepSeek 大纲 → 复制到 Gamma → 一键生成。**质量 > 直接让 PPT 
       title: "搜索升级 · Perplexity Comet / Google AI Mode / ChatGPT Search / Claude Web",
       sub: "Google 时代结束 · AI 搜索完全胜出（2026 现状）",
       minutes: 8,
-      summary: "AI 搜索 = 搜索引擎 + 总结 + 引用源 + 自主调研。从此不再"30 个标签页找答案"。",
+      summary: "AI 搜索 = 搜索引擎 + 总结 + 引用源 + 自主调研。从此不再「30 个标签页找答案」。",
       content: `
 ## 5 大 AI 搜索 · 2026-05 真实排名
 
@@ -2505,7 +2505,7 @@ claude
       title: "Obsidian + Claude Code · 把笔记本变成 Agent 工作台",
       sub: "2026 文科生最强组合（重点章节）",
       minutes: 28,
-      summary: "Obsidian 装上 Claude Code 插件后，AI 能直接读你所有笔记、跟随双链、写新笔记 —— 你的"第二大脑"真的有大脑了。",
+      summary: "Obsidian 装上 Claude Code 插件后，AI 能直接读你所有笔记、跟随双链、写新笔记 —— 你的「第二大脑」真的有大脑了。",
       content: `
 ## 为什么这一章是重点
 
