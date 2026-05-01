@@ -422,32 +422,33 @@ const App = (() => {
           ChatGPT 是助手（你问它答），Agent 是员工（你给目标，它自己拆任务、调工具、执行、交付）。
         </div>
 
-        <h2>3 大主流平台对比</h2>
+        <h2>2026 年 Agent 主流栈对比</h2>
+        <p class="hint">⚠️ 旧时代的 Coze / Dify / n8n / FastGPT 已退居二线，成为"传统可视化自动化"。2026 年真正在改变工作流的是这 4 件套：</p>
         <table>
           <thead>
-            <tr><th>平台</th><th>难度</th><th>适合场景</th><th>是否需翻墙</th><th>推荐指数</th></tr>
+            <tr><th>工具</th><th>难度</th><th>适合场景</th><th>价格</th><th>推荐指数</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Coze</strong>（字节）</td><td>★ 入门</td><td>对话型 Bot / 公众号 / 飞书机器人</td><td>否</td><td>⭐⭐⭐⭐⭐</td></tr>
-            <tr><td><strong>Dify</strong>（开源）</td><td>★★ 进阶</td><td>知识库问答 / 多步工作流</td><td>否</td><td>⭐⭐⭐⭐⭐</td></tr>
-            <tr><td><strong>n8n</strong>（开源）</td><td>★★★ 中级</td><td>跨平台自动化 / 接 Gmail+Slack+...</td><td>否</td><td>⭐⭐⭐⭐</td></tr>
-            <tr><td>FastGPT</td><td>★★ 进阶</td><td>知识库 + 国产模型</td><td>否</td><td>⭐⭐⭐⭐</td></tr>
-            <tr><td>OpenAI Custom GPTs</td><td>★ 入门</td><td>个人 GPT 商店</td><td>是</td><td>⭐⭐⭐</td></tr>
+            <tr><td><strong>Claude Code</strong>（Anthropic CLI）</td><td>★ 入门</td><td>终端 / IDE / Obsidian 内驱动 Agent，能读写文件、跑命令、查资料</td><td>$20/月 Pro 起</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>Obsidian + Claude Code 插件</strong></td><td>★ 入门</td><td>把 Vault 当 Agent 长期记忆，跨天连续工作不丢上下文</td><td>免费插件</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>Claude Projects / Custom GPTs</strong></td><td>★ 入门</td><td>上传知识库 → 共享链接当客服 / 答疑 Bot</td><td>$20/月 Plus / Pro</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>MCP + Computer Use</strong>（Claude / Codex）</td><td>★★ 进阶</td><td>让 AI 看屏幕、点鼠标、敲键盘，操作所有桌面 App</td><td>包含在 Claude / ChatGPT 订阅中</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td>OpenAI Codex CLI / Gemini CLI</td><td>★ 入门</td><td>Claude Code 的同生态替代品（B 计划）</td><td>$20/月起</td><td>⭐⭐⭐⭐</td></tr>
           </tbody>
         </table>
 
-        <h2>30 分钟搭出第一个 Agent · 路径图</h2>
+        <h2>30 分钟搭出第一个 Agent · 2026 路径图</h2>
         <div class="mermaid-wrap">
           <div data-mermaid="graph LR
-            A[注册 Coze 账号] --> B[创建 Bot]
-            B --> C[写人设]
-            C --> D[加插件]
-            D --> E[加知识库]
-            E --> F[测试调优]
-            F --> G[一键发布]
-            G --> 飞[飞书]
-            G --> 公[公众号]
-            G --> API[API]"></div>
+            A[安装 Claude Code] --> B[在 Obsidian Vault 里 claude]
+            B --> C[写 CLAUDE.md 项目说明]
+            C --> D[挂 MCP filesystem 服务器]
+            D --> E[让 AI 读写笔记]
+            E --> F[加 cron 定时触发]
+            F --> G[一键自动跑]
+            G --> S[Slack/Email 推送]
+            G --> Sub[Substack 发布]
+            G --> API[API 集成]"></div>
         </div>
 
         <h2>3 个文科生最该先做的 Agent</h2>
@@ -468,17 +469,17 @@ const App = (() => {
 
         <h2>常见问题</h2>
         <h3>Q1：搭 Agent 需要会编程吗？</h3>
-        <p>不需要。Coze / Dify 都是拖拽式的，整个 30 天课程里我们一行代码都不写。</p>
+        <p>不需要。Claude Code 接受自然语言指令；Claude Projects / Custom GPT 全图形界面。整个 30 天课程一行代码都不强求。</p>
 
         <h3>Q2：免费的够用吗？</h3>
-        <p>对个人用户 90% 场景够用。Coze 免费有大量调用额度。Dify 可以本地部署完全免费。</p>
+        <p>试水阶段够用：Gemini 2.5 Pro 免费、Claude / ChatGPT Web 免费有限额。常态化跑建议 $20/月 Pro 订阅起，重度用户上 $100-200/月 Max 档。</p>
 
         <h3>Q3：搭好了能商用吗？</h3>
-        <p>可以。Coze 有商店可发布；Dify 自部署后完全自主；n8n 直接对接你的业务系统。</p>
+        <p>可以。Custom GPT 有商店可发布；Claude Projects 可生成共享链接；Claude Code + MCP 可直接对接你的业务系统、本地文件、内部 API。</p>
 
         <div class="lesson-nav">
           <a href="#/lesson/22" class="btn-secondary prev">← Day 22 · 什么是 Agent</a>
-          <a href="#/lesson/23" class="btn-primary next">Day 23 · Coze 实战 →</a>
+          <a href="#/lesson/23" class="btn-primary next">Day 23 · Claude Code 实战 →</a>
         </div>
       </article>
     `;

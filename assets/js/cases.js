@@ -13,8 +13,8 @@ const CASES = [
     content: `
 ## 行业现状（2026）
 
-- **大所**：金杜、中伦、君合 都已上线 AI 法律助手
-- **中小所**：80% 还在 Word + 百度搜法条
+- **国际大所**：Allen & Overy（Harvey AI）、DLA Piper、Clifford Chance 全部上线 AI 法律助手
+- **中小所**：80% 还在 Word + 关键词搜索
 - **机会**：早做的律师，效率是同行 3-5 倍
 
 ## 3 个最痛的场景
@@ -49,7 +49,7 @@ const CASES = [
 ### 场景 2 · 合同审查
 **痛点**：100 页合同看一天，眼花
 
-**AI 解决**：用 Kimi（200K 长文支持）
+**AI 解决**：用 Gemini 2.5 Pro（2M 上下文）或 Claude Opus 4（200K 长文 + PDF 直读）
 
 \`\`\`
 [上传合同 PDF]
@@ -73,10 +73,11 @@ const CASES = [
 \`\`\`
 
 ### 场景 3 · 客户咨询 7×24
-搭一个 Coze Bot 接到律所微信公众号：
+用 **Claude Projects** 或 **Custom GPT** 上传律所知识库，把链接挂到官网 / Slack：
 
-- 客户问"我离婚财产怎么分" → Bot 基于知识库回答
-- 客户问"具体我的情况" → Bot 收集信息 → 生成案件摘要 → 转人工
+- 客户问"我离婚财产怎么分" → Bot 基于上传的法条 + 内部 Memo 回答
+- 客户问"具体我的情况" → Bot 收集信息 → 生成案件摘要 → 邮件转人工
+- 进阶：用 Claude Code + MCP 直接接律所文件系统，自动归档对话到 Obsidian Vault
 
 **实际收益**：律所周末线索量 +30%
 
@@ -139,10 +140,10 @@ const CASES = [
 
 | 周 | 搭什么 |
 |----|-------|
-| 1 | 法条助手（用 Coze + 必应搜索） |
-| 2 | 合同审查 Agent（用 Dify + 知识库 RAG） |
-| 3 | 客户咨询 Agent（接微信公众号） |
-| 4 | 完整工作流 + n8n 串联 |
+| 1 | 法条助手（Claude Projects + Web Search） |
+| 2 | 合同审查 Agent（Claude Code + Obsidian Vault 法条库） |
+| 3 | 客户咨询 Agent（Custom GPT 或 Claude.ai 共享链接） |
+| 4 | 完整工作流（Claude Code + MCP filesystem + cron 定时） |
 `,
   },
 
@@ -242,7 +243,7 @@ const CASES = [
                                     [发布 Agent] ─→ [数据 Agent] ─→ [复盘 Agent]
 \`\`\`
 
-每个 Agent 单独搭建，n8n 串联。
+每个 Agent 单独搭建，**Claude Code 子代理（sub-agents）** 串联，定时由 cron / GitHub Actions 触发。
 
 ## 模板库
 
@@ -308,10 +309,10 @@ KPI：【...】
 
 | 周 | 搭什么 |
 |----|-------|
-| 1 | 选题 Agent（用 Coze + 必应） |
-| 2 | 多平台文案分发 Agent（Day 27 实战） |
-| 3 | 投放数据分析 Agent（Dify + 数据上传） |
-| 4 | 全矩阵串联（n8n） |
+| 1 | 选题 Agent（Perplexity Pro + Claude Projects） |
+| 2 | 多平台文案分发 Agent（Claude Code + Obsidian + 子代理） |
+| 3 | 投放数据分析 Agent（ChatGPT 上传 CSV 或 Claude Code + 本地 Python） |
+| 4 | 全矩阵串联（Claude Code 主控 + cron / GitHub Actions） |
 `,
   },
 
@@ -332,7 +333,7 @@ KPI：【...】
 ## 3 个最痛场景
 
 ### 场景 1 · 100 页财报快速摘要
-**用 Kimi 长文模型**
+**用 Gemini 2.5 Pro（2M 上下文，免费）或 Claude Opus 4（PDF 直读 + 表格识别强）**
 
 \`\`\`
 [上传季报 PDF]
@@ -379,15 +380,15 @@ KPI：【...】
 \`\`\`
 
 ### 场景 3 · 每日宏观雷达
-搭一个 Coze Bot：
+用 **Claude Code + cron + Obsidian Vault** 搭一个本地 Agent：
 
 \`\`\`
-每天 7:30 自动触发：
-1. 抓取 Fed / PBoC 昨日动向
-2. 抓取 WSJ / Bloomberg / 财新 头条
-3. 抓取美债 10y / 美元指数 / 油 / 金 / VIX 收盘
+每天 7:30 自动触发（cron）：
+1. Claude Code 读取 50-Templates/宏观雷达.md 的 Prompt
+2. 调用 Web Search MCP 抓取 Fed / ECB / BOJ 昨日动向 + WSJ / Bloomberg / FT 头条
+3. 抓取美债 10y / DXY / WTI / 黄金 / VIX 收盘（FRED / Yahoo Finance API）
 4. 输出"对我配置最关键的 3 件事"
-5. 飞书推送
+5. 写入 40-Daily/$(date).md 并发送 Slack / Email
 \`\`\`
 
 ## 模板库
@@ -445,10 +446,10 @@ KPI：【...】
 
 | 周 | 搭什么 |
 |----|-------|
-| 1 | 财报解读 Agent（Kimi 长文） |
-| 2 | 公司画像 Agent（Dify + 数据库） |
-| 3 | 宏观雷达 Agent（Coze + 定时） |
-| 4 | 投研工作流（n8n 串联早会简报） |
+| 1 | 财报解读 Agent（Gemini 2.5 Pro 或 Claude Opus 4 PDF 直读） |
+| 2 | 公司画像 Agent（Claude Projects + 行业知识库 PDF） |
+| 3 | 宏观雷达 Agent（Claude Code + cron + Web Search MCP） |
+| 4 | 投研工作流（Claude Code 主控 + 子代理 + Obsidian Vault 长期记忆） |
 `,
   },
 
@@ -634,7 +635,7 @@ B 组：[数据]
 
 ### 场景 2 · 个性化答疑
 
-搭一个 Coze Bot 接到班级群：
+用 **Custom GPT** 或 **Claude Projects** 上传教材 + 题库，把分享链接发到 Discord / Slack 班群（学生免费用）：
 
 人设：
 \`\`\`
@@ -725,10 +726,10 @@ B 组：[数据]
 
 | 周 | 搭什么 |
 |----|-------|
-| 1 | 备课 Agent（用 Coze + 教材库） |
-| 2 | 答疑 Bot（接到班级群） |
-| 3 | 学情分析 Agent（Dify + 数据） |
-| 4 | 个性化推送（家长版 + 学生版） |
+| 1 | 备课 Agent（Claude Projects + 教材 PDF 库） |
+| 2 | 答疑 Bot（Custom GPT 公开链接，挂 Discord/Slack 班群） |
+| 3 | 学情分析 Agent（Claude Code + Excel/CSV 本地分析） |
+| 4 | 个性化推送（Claude Code + cron 自动生成家长版 + 学生版） |
 `,
   },
 

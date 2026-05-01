@@ -269,10 +269,10 @@ B：保守派（追求【...】）
   {
     id: "agent",
     title: "🤖 Agent 搭建 6 件套",
-    desc: "Coze / Dify 复用模板",
+    desc: "Claude Code / Claude Projects / Custom GPT 通用人设模板",
     items: [
       {
-        title: "Coze 个人助手人设",
+        title: "个人助手人设（通用）",
         body: `你是一名【性格】的【角色】"【名字】"。
 
 【你的任务】
